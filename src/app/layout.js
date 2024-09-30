@@ -1,5 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import MantProvider from "@/providers/MantProvider";
+import { Toaster } from "sonner";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +27,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <MantProvider>
+          <Toaster />
+          <Navbar />
+          {children}
+          <Footer />
+        </MantProvider>
       </body>
     </html>
   );
